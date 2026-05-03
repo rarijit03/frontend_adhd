@@ -425,7 +425,7 @@ function Nav({ theme, setTheme, C, page, nav }) {
         <span style={{ fontFamily:"Syne,sans-serif",fontWeight:800,fontSize:18,color:C.text }}>NeuraScan</span>
         <span style={{ fontSize:10,color:C.accent,fontWeight:700,background:C.glow,padding:"2px 7px",borderRadius:6,border:`1px solid ${C.borderA}` }}>ADHD</span>
       </div>
-      // <div style={{ display:"flex",alignItems:"center",gap:10 }}>
+      
       <div style={{ display:"flex",alignItems:"center",gap:6,overflowX:"auto",WebkitOverflowScrolling:"touch",flexShrink:0 }}>
         {user&&<>
           <button className="btn-g" style={{ padding:"7px 13px",fontSize:13,display:"flex",alignItems:"center",gap:5 }} onClick={()=>nav("history")}><Ic n="history" s={13} />History</button>

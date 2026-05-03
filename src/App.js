@@ -468,7 +468,7 @@ function Landing({ C, nav }) {
         </div>
         {user&&<p style={{ marginTop:14,fontSize:13,color:C.accent }}>Welcome back, {user.full_name?.split(" ")[0]}! 👋</p>}
       </div>
-      // <div style={{ display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:18,marginBottom:80 }}>
+      
       <div style={{ display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(240px,1fr))",gap:18,marginBottom:80 }}>
         {[
           {e:"🧠",t:"Stacked ML Ensemble",d:"GBM + RF + LR trained on ADHD-200 & CAARS. Correct ASRS ID mapping with domain-weighted imputation for unanswered items."},
@@ -491,7 +491,7 @@ function Landing({ C, nav }) {
 // ============================================================
 function Consent({ C, onAllow, onSkip }) {
   return (
-    // <div style={{ maxWidth:520,margin:"60px auto",padding:"0 24px" }}>
+    
     <div style={{ maxWidth:520,margin:"40px auto",padding:"0 16px",width:"100%" }}>
       <div className="card fade-up" style={{ padding:"44px 38px",textAlign:"center" }}>
         <div style={{ fontSize:52,marginBottom:18 }}>👁️</div>

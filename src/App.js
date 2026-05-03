@@ -383,7 +383,6 @@ function Shell() {
     input:focus{border-color:${C.accent};box-shadow:0 0 0 3px ${C.glow}}
     .spin{width:20px;height:20px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .8s linear infinite;display:inline-block}
     .err{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);border-radius:10px;padding:12px 16px;color:#ef4444;font-size:13px;margin-bottom:14px}
-    @media(max-width:600px){.btn{padding:11px 20px;font-size:13px}.card{border-radius:14px}}
   `;
 
   const nav = (p) => { setPage(p); window.scrollTo(0,0); };
@@ -425,8 +424,7 @@ function Nav({ theme, setTheme, C, page, nav }) {
         <span style={{ fontFamily:"Syne,sans-serif",fontWeight:800,fontSize:18,color:C.text }}>NeuraScan</span>
         <span style={{ fontSize:10,color:C.accent,fontWeight:700,background:C.glow,padding:"2px 7px",borderRadius:6,border:`1px solid ${C.borderA}` }}>ADHD</span>
       </div>
-      
-      <div style={{ display:"flex",alignItems:"center",gap:6,overflowX:"auto",WebkitOverflowScrolling:"touch",flexShrink:0 }}>
+      <div style={{ display:"flex",alignItems:"center",gap:10 }}>
         {user&&<>
           <button className="btn-g" style={{ padding:"7px 13px",fontSize:13,display:"flex",alignItems:"center",gap:5 }} onClick={()=>nav("history")}><Ic n="history" s={13} />History</button>
           <button className="btn-g" style={{ padding:"7px 13px",fontSize:13,display:"flex",alignItems:"center",gap:5 }} onClick={()=>nav("profile")}><Ic n="user" s={13} />{user.full_name?.split(" ")[0]}</button>
@@ -468,8 +466,7 @@ function Landing({ C, nav }) {
         </div>
         {user&&<p style={{ marginTop:14,fontSize:13,color:C.accent }}>Welcome back, {user.full_name?.split(" ")[0]}! 👋</p>}
       </div>
-      
-      <div style={{ display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(240px,1fr))",gap:18,marginBottom:80 }}>
+      <div style={{ display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:18,marginBottom:80 }}>
         {[
           {e:"🧠",t:"Stacked ML Ensemble",d:"GBM + RF + LR trained on ADHD-200 & CAARS. Correct ASRS ID mapping with domain-weighted imputation for unanswered items."},
           {e:"👁️",t:"MediaPipe FaceMesh",d:"468-landmark face mesh computes Eye Aspect Ratio (EAR < 0.21) for accurate blink detection. Falls back to pixel method if unavailable."},
@@ -491,8 +488,7 @@ function Landing({ C, nav }) {
 // ============================================================
 function Consent({ C, onAllow, onSkip }) {
   return (
-    
-    <div style={{ maxWidth:520,margin:"40px auto",padding:"0 16px",width:"100%" }}>
+    <div style={{ maxWidth:520,margin:"60px auto",padding:"0 24px" }}>
       <div className="card fade-up" style={{ padding:"44px 38px",textAlign:"center" }}>
         <div style={{ fontSize:52,marginBottom:18 }}>👁️</div>
         <h2 style={{ fontFamily:"Syne,sans-serif",fontSize:24,fontWeight:800,color:C.text,marginBottom:10 }}>Enable Eye Tracking?</h2>
@@ -623,8 +619,7 @@ function Assessment({ C, camOn, onFinish }) {
   };
 
   return(
-    // <div style={{ maxWidth:660,margin:"0 auto",padding:"32px 24px 60px",position:"relative" }}>
-    <div style={{ maxWidth:660,margin:"0 auto",padding:"32px 16px 60px",position:"relative",width:"100%",boxSizing:"border-box" }}>
+    <div style={{ maxWidth:660,margin:"0 auto",padding:"32px 24px 60px",position:"relative" }}>
       {showPop&&<div style={{ position:"fixed",top:"50%",left:"50%",transform:"translate(-50%,-50%)",zIndex:500,background:`linear-gradient(135deg,${C.accent},${C.alt})`,color:"#fff",padding:"14px 26px",borderRadius:14,fontFamily:"Syne,sans-serif",fontSize:17,fontWeight:800,animation:"pop .35s ease",pointerEvents:"none",boxShadow:`0 0 40px ${C.glow}` }}>🔥 {streak} answered!</div>}
 
       {camOn&&<div style={{ display:"flex",alignItems:"center",gap:8,background:C.glow,border:`1px solid ${C.borderA}`,borderRadius:9,padding:"7px 13px",marginBottom:18,animation:"fadeIn .4s ease" }}>
@@ -825,8 +820,7 @@ function Results({ C, results, answers, sid, nav }) {
         {part_a_screen===1&&<div style={{ display:"inline-block",marginTop:9,background:"rgba(239,68,68,.12)",border:"1px solid rgba(239,68,68,.35)",borderRadius:7,padding:"4px 12px",fontSize:12,color:"#ef4444",fontWeight:700 }}>⚠️ ASRS Part A Positive — {part_a_positives} diagnostic items flagged</div>}
       </div>
 
-      // <div style={{ display:"grid",gridTemplateColumns:"1fr 1fr",gap:18,marginBottom:18 }}>
-      <div style={{ display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(280px,1fr))",gap:18,marginBottom:18 }}>
+      <div style={{ display:"grid",gridTemplateColumns:"1fr 1fr",gap:18,marginBottom:18 }}>
         <div className="card" style={{ padding:34,display:"flex",flexDirection:"column",alignItems:"center" }}>
           <Ring pct={pct} color={color} C={C} />
           <h3 style={{ fontFamily:"Syne,sans-serif",fontSize:19,fontWeight:800,color:C.text,marginTop:18,marginBottom:4 }}>{severity} Indicators</h3>
